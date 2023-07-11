@@ -5,12 +5,14 @@ export const TRANSLATION_EN = {
         password: "Password"
     },
     messages: {
-        itIsRequiredField: "It is required field"
+        itIsRequiredField: "Required"
     },
     buttons: {
-        login: "Log In"
+        login: "Log In",
+        logout: "Log Out"
     },
     errors: {
-        auth: "Authorization error. Check your data"
+        auth: "Authorization error. Check your data",
+        server: "Server error. Try later"
     }
 }

@@ -5,12 +5,14 @@ export const TRANSLATION_RU = {
         password: "Пароль"
     },
     messages: {
-        itIsRequiredField: "Это обязательное поле"
+        itIsRequiredField: "Обязательно"
     },
     buttons: {
-        login: "Вход"
+        login: "Вход",
+        logout: "Выйти"
     },
     errors: {
-        auth: "Ошибка авторизации. Проверьте введённые данные"
+        auth: "Ошибка авторизации. Проверьте введённые данные",
+        server: "Ошибка на сервере. Попробуйте позже"
     }
 }

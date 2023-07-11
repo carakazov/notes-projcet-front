@@ -9,10 +9,11 @@ import {
 export function setData(login, password, token) {
     let accessToken = token.access_token
     let expirationTime = token.expires_in
+    let currentTime = Math.round(new Date().getTime()/1000)
     sessionStorage.setItem(LOGIN_KEY, login)
     sessionStorage.setItem(PASSWORD_KEY, password)
     sessionStorage.setItem(TOKEN_KEY, accessToken)
-    sessionStorage.setItem(ACCESS_TOKEN_EXPIRATION_TIME_KEY, expirationTime)
+    sessionStorage.setItem(ACCESS_TOKEN_EXPIRATION_TIME_KEY, currentTime + expirationTime)
 }
 
 export function setCurrentUser(currentUser) {
