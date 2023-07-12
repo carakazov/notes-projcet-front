@@ -3,6 +3,8 @@ import LoginForm from "../loginform/LoginForm";
 import {useState} from "react";
 import {AuthContext} from "../../conxtexts/authcontext/authContext";
 import {CURRENT_USER_DATA} from "../../constants/tokenConstants";
+import TabHeader from "../tabheader/TabHeader";
+import TabHeaderAndLogin from "../tabheaderandlogin/TabHeaderAndLogin";
 
 function App() {
   let string = sessionStorage.getItem(CURRENT_USER_DATA)
@@ -11,7 +13,7 @@ function App() {
   return (
       <div>
         <AuthContext.Provider value={{userData, setUserData}}>
-          <LoginForm/>
+            <TabHeaderAndLogin/>
         </AuthContext.Provider>
       </div>
   );
