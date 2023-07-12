@@ -2,7 +2,8 @@ export const TRANSLATION_EN = {
     labels: {
         userNotAuthorized: "User not authorized",
         login: "Login",
-        password: "Password"
+        password: "Password",
+        createNote: "+ Create note"
     },
     messages: {
         itIsRequiredField: "Required"
