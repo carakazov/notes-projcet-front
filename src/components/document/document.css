@@ -1,0 +1,13 @@
+.document-title {
+    border-radius: 3px;
+    width: auto;
+    padding: 2px;
+}
+.document-title:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
+.document-control {
+    display: flex;
+}

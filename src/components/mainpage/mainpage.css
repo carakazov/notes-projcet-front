@@ -1,0 +1,12 @@
+.main-page {
+    display: flex;
+    width: 100%;
+}
+
+.left-tab-item {
+    flex: 0.5
+}
+
+.right-tab-item {
+    flex: 2;
+}

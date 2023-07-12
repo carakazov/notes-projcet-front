@@ -1,0 +1,44 @@
+.open {
+    writing-mode: vertical-lr;
+}
+
+.arrow {
+    cursor: pointer;
+    color: white;
+    background-color: #4e4e4e;
+    text-align: center;
+}
+
+.folder {
+    display: flex;
+    flex-direction: column;
+    font-family: Tahoma, serif;
+    color: white;
+}
+
+.folder-controls {
+    display: flex;
+    column-gap: 5px;
+    padding: 10px;
+}
+
+.folder-check-box {
+    margin-top: 2px;
+}
+
+.arrow-wrapper {
+    text-align: center;
+    vertical-align: center;
+    line-height: 10px;
+    margin-top: 5px;
+}
+
+.documents-block {
+    margin-left: 35px;
+    font-size: 12px;
+}
+
+.create-note {
+    color: #626262;
+    cursor: pointer;
+}
