@@ -4,4 +4,35 @@
     color: white;
     height: 40px;
     padding: 10px;
+    display: flex;
+    min-width: 305px;
+}
+
+.company-logo {
+    width: 110px;
+    flex: 1;
+}
+
+.delete-button {
+    background-color: #ff6969;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 3px;
+    margin-left: 2px;
+}
+
+.delete-button:active {
+    background-color: gray;
+}
+
+.delete-button-block {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.local-folder-message {
+    color: red;
+    font-size: 10px;
 }

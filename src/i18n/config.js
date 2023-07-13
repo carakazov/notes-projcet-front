@@ -5,7 +5,7 @@ import { TRANSLATION_EN } from './en/translation';
 
 i18n.use(initReactI18next)
     .init({
-        fallbackLng: 'en',
+        fallbackLng: 'ru',
         resources: {
             ru: {
                 translation: TRANSLATION_RU,

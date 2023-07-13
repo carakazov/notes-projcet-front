@@ -1,0 +1,6 @@
+.right-tab {
+    background-color: #c2c2c2;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}

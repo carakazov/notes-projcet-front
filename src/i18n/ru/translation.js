@@ -6,11 +6,15 @@ export const TRANSLATION_RU = {
         createNote: "+ Создать документ"
     },
     messages: {
-        itIsRequiredField: "Обязательно"
+        itIsRequiredField: "Обязательно",
+        canNotDeleteLocalFolder: "Локальную папку удалить нельзя!"
     },
     buttons: {
         login: "Вход",
-        logout: "Выйти"
+        logout: "Выйти",
+        save: "Сохранить",
+        delete: "Удалить",
+        edit: "Изменить"
     },
     errors: {
         auth: "Ошибка авторизации. Проверьте введённые данные",
