@@ -1,0 +1,71 @@
+.note-field {
+    height: 100%;
+}
+
+.read-block {
+    height: 100%;
+}
+
+.field-content {
+    width: 50%;
+    max-width: 600px;
+    white-space: pre-wrap;
+    line-break: anywhere;
+    height: 90%;
+    max-height: 600px;
+    margin-left: 90px;
+    background-color: #d9d9d9;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+@media screen and (min-height: 1200px ) {
+    .field-content {
+        max-height: 1200px;
+    }
+}
+
+.creation-field {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    height: 100%;
+}
+
+.content-input {
+    height: 90%;
+}
+
+.save-button {
+    width: 80px;
+    background-color: #ff6969;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    height: 40px;
+}
+
+.save-button:active {
+    background-color: gray;
+}
+
+.required-field-message {
+    color: #a33636;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.edit-button {
+    margin-left: 90px;
+    margin-bottom: 10px;
+    background-color: #ff6969;
+    border: none;
+    border-radius: 3px;
+    padding: 2px;
+    color: white;
+}
+
+.edit-button:active {
+    background-color: gray;
+}

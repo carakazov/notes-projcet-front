@@ -6,11 +6,15 @@ export const TRANSLATION_EN = {
         createNote: "+ Create note"
     },
     messages: {
-        itIsRequiredField: "Required"
+        itIsRequiredField: "Required",
+        canNotDeleteLocalFolder: "Can not delete local folder!"
     },
     buttons: {
         login: "Log In",
-        logout: "Log Out"
+        logout: "Log Out",
+        save: "Save",
+        delete: "Delete",
+        edit: "Edit"
     },
     errors: {
         auth: "Authorization error. Check your data",
