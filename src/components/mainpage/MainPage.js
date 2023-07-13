@@ -13,6 +13,7 @@ export default function MainPage() {
     const [folders, setFolders] = useState([])
     const [reloadFolders, setReloadFolders] = useState(true)
     const [isEditInProcess, hasEditInProcess] = useState(false)
+    const [tabToHide, setTabToHide] = useState(undefined)
 
     useEffect(() => {
         if(reloadFolders) {
@@ -25,7 +26,7 @@ export default function MainPage() {
     }, [reloadFolders])
 
     return(
-        <CurrentNoteContext.Provider value={{currentNote, setCurrentNote, isInCreation, hasInCreation, creationDirectory, setCreationDirectory, folders, setReloadFolders, isEditInProcess, hasEditInProcess}}>
+        <CurrentNoteContext.Provider value={{currentNote, setCurrentNote, isInCreation, hasInCreation, creationDirectory, setCreationDirectory, folders, setReloadFolders, isEditInProcess, hasEditInProcess, tabToHide, setTabToHide}}>
             <div className={'main-page'}>
                 <div className={'main-page-item left-tab-item'}>
                     <LeftTab/>

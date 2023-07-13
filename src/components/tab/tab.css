@@ -1,0 +1,6 @@
+.tab {
+    border: solid black 1px;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 3px;
+}
