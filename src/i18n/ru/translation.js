@@ -3,7 +3,9 @@ export const TRANSLATION_RU = {
         userNotAuthorized: "Пользователь не авторизован",
         login: "Логин",
         password: "Пароль",
-        createNote: "+ Создать документ"
+        createNote: "+ Создать документ",
+        next: 'След.',
+        prev: 'Пред.'
     },
     messages: {
         itIsRequiredField: "Обязательно",

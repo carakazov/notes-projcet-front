@@ -7,7 +7,7 @@ import {CurrentNoteContext} from "../../conxtexts/currentnotecontext/currentNote
 
 export default function CompanyLogo() {
     const {isSelected, objectToDelete, hasSelected} = useContext(ObjectsToDeleteContext)
-    const {setReloadFolders} = useContext(CurrentNoteContext)
+    const {setReloadFolders, setTabToHide, setCurrentNote} = useContext(CurrentNoteContext)
     const [isLocalFolderInDeleteList, hasLocalFolderInDeleteList] = useState(false)
     const {t} = useTranslation()
 
@@ -20,13 +20,17 @@ export default function CompanyLogo() {
             }
             //Удаление папок на сервере
         }
+        let tabArr = []
         for(let documentExternalId of objectToDelete.checkedDocuments) {
             if(documentExternalId.includes('local-note')) {
                 deleteLocalNote(documentExternalId)
             }
+            tabArr.push(documentExternalId)
         }
+        setTabToHide(tabArr)
         setReloadFolders(true)
         hasSelected(false)
+        setCurrentNote(null)
     }
 
     const localFolderMessage = isLocalFolderInDeleteList ? <span className={'local-folder-message'}>{t('messages.canNotDeleteLocalFolder')}</span> : null

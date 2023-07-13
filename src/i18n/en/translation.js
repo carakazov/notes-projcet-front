@@ -3,7 +3,9 @@ export const TRANSLATION_EN = {
         userNotAuthorized: "User not authorized",
         login: "Login",
         password: "Password",
-        createNote: "+ Create note"
+        createNote: "+ Create note",
+        next: 'Next',
+        prev: 'Prev'
     },
     messages: {
         itIsRequiredField: "Required",
