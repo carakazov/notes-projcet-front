@@ -4,6 +4,7 @@ export const TRANSLATION_RU = {
         login: "Логин",
         password: "Пароль",
         createNote: "+ Создать документ",
+        createFolder: "+ Создать папку",
         next: 'След.',
         prev: 'Пред.'
     },
@@ -16,10 +17,15 @@ export const TRANSLATION_RU = {
         logout: "Выйти",
         save: "Сохранить",
         delete: "Удалить",
-        edit: "Изменить"
+        edit: "Изменить",
+        cancel: "Отмена"
     },
     errors: {
         auth: "Ошибка авторизации. Проверьте введённые данные",
         server: "Ошибка на сервере. Попробуйте позже"
+    },
+    placeholders: {
+        title: 'Название',
+        content: 'Содержание'
     }
 }

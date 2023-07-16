@@ -4,6 +4,7 @@ export const TRANSLATION_EN = {
         login: "Login",
         password: "Password",
         createNote: "+ Create note",
+        createFolder: "+ Create folder",
         next: 'Next',
         prev: 'Prev'
     },
@@ -16,10 +17,15 @@ export const TRANSLATION_EN = {
         logout: "Log Out",
         save: "Save",
         delete: "Delete",
-        edit: "Edit"
+        edit: "Edit",
+        cancel: "Cancel"
     },
     errors: {
         auth: "Authorization error. Check your data",
         server: "Server error. Try later"
+    },
+    placeholders: {
+        title: 'title',
+        content: 'content'
     }
 }

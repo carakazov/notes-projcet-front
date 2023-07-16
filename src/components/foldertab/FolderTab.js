@@ -1,19 +1,27 @@
 import './foldertab.css'
 import {FolderContext} from "../../conxtexts/foldercontext/folderContext";
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import '../folder/Folder'
 import Folder from "../folder/Folder";
-import {LOCAL_FOLDER} from "../../constants/tokenConstants";
 import {CurrentNoteContext} from "../../conxtexts/currentnotecontext/currentNoteContext";
 import {ObjectsToDeleteContext} from "../../conxtexts/objectstodeletecontext/objectsToDeleteContext";
+import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
+import {useTranslation} from "react-i18next";
+import {CreateFolderContext} from "../../conxtexts/createfoldercontext/createFolderContext";
+import CreateFolder from "../createfolder/CreateFolder";
+import {createDirectory} from "../../api/logicApi";
 
 export default function FolderTab() {
-    const {folders} = useContext(CurrentNoteContext)
+    const {folders, setReloadFolders} = useContext(CurrentNoteContext)
     const {hasSelected, setObjectToDelete} = useContext(ObjectsToDeleteContext)
     const [folderData, setFolderData] = useState({
         checkedFolders: [],
         checkedDocuments: []
     })
+    const {userData} = useContext(GlobalContext)
+    const {t} = useTranslation()
+    const [isFolderInCreation, hasFolderInCreation] = useState(false)
+    const [folderTitle, setFolderTitle] = useState("")
 
     function checkLists() {
         if(folderData.checkedFolders.length === 0 && folderData.checkedDocuments.length === 0) {
@@ -22,7 +30,7 @@ export default function FolderTab() {
     }
 
     function removeDocument(externalId) {
-        folderData.checkedDocuments = folderData.checkedDocuments.filter(item => item !== externalId)
+        folderData.checkedDocuments = folderData.checkedDocuments.filter(item=> item.documentExternalId !== externalId)
         setFolderData(folderData)
         setObjectToDelete(folderData)
         checkLists()
@@ -35,8 +43,8 @@ export default function FolderTab() {
         checkLists()
     }
 
-    function addDocument(externalId) {
-        folderData.checkedDocuments.push(externalId)
+    function addDocument(documentExternalId, folderExternalId) {
+        folderData.checkedDocuments.push({documentExternalId, folderExternalId})
         setFolderData(folderData)
         setObjectToDelete(folderData)
     }
@@ -47,10 +55,28 @@ export default function FolderTab() {
         setObjectToDelete(folderData)
     }
 
+    function createFolder() {
+        let directory = {
+            directoryName: folderTitle
+        }
+        createDirectory(directory).then(() => {
+            setReloadFolders(true)
+            hasFolderInCreation(false)
+        })
+            .catch(error => console.log(error))
+    }
+
+    const createFolderBlock = userData ? (isFolderInCreation ? <CreateFolder/> : <p className={'create-folder'} onClick={() => hasFolderInCreation(true)}>{t('labels.createFolder')}</p>) : null
+
     return(
         <div className={'folder-tab'}>
             <FolderContext.Provider value={{folderData, addDocument, addFolder, removeDocument, removeFolder}}>
-                {folders.map(item => <Folder folder={item} key={item.externalId}/>)}
+                <div>
+                    {folders.map(item => <Folder folder={item} key={item.externalId}/>)}
+                </div>
+                <CreateFolderContext.Provider value={{hasFolderInCreation, setFolderTitle, createFolder}}>
+                    {createFolderBlock}
+                </CreateFolderContext.Provider>
             </FolderContext.Provider>
         </div>
     )

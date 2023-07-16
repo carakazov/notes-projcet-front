@@ -1,19 +1,50 @@
 import './folder.css'
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import Document from "../document/Document";
 import {useTranslation} from "react-i18next";
 import {FolderContext} from "../../conxtexts/foldercontext/folderContext";
 import {CurrentNoteContext} from "../../conxtexts/currentnotecontext/currentNoteContext";
 import {ObjectsToDeleteContext} from "../../conxtexts/objectstodeletecontext/objectsToDeleteContext";
+import {readDirectory} from "../../api/logicApi";
+import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
+import {reloadLocalStorage} from "../../starter/localStorageHelper";
 
 export default function Folder(props) {
     const {t} = useTranslation()
     const [isOpen, hasOpen] = useState(false)
     const {folder} = props
     const {addFolder, removeFolder} = useContext(FolderContext)
-    const {setCreationDirectory, hasInCreation, hasEditInProcess} = useContext(CurrentNoteContext)
+    const {setCreationDirectory, hasInCreation, hasEditInProcess, reloadFolders} = useContext(CurrentNoteContext)
+    const [notes, setNotes] = useState()
     const {hasSelected} = useContext(ObjectsToDeleteContext)
+    const {userData, folderIdToReload, setFolderIdToReload} = useContext(GlobalContext)
     let arrowClassName = isOpen ? "arrow open" : "arrow"
+
+    useEffect(() => {
+        reload()
+    }, [reloadFolders])
+
+    useEffect(() => {
+        console.log(folderIdToReload)
+        if(folderIdToReload === folder.externalId) {
+            reload()
+            setFolderIdToReload(null)
+        }
+    }, [folderIdToReload])
+
+    function reload() {
+        if(folder.externalId.includes('local')) {
+            setNotes(reloadLocalStorage().notes)
+        } else {
+            if(userData) {
+                readDirectory(folder.externalId)
+                    .then(result => {
+                        setNotes(result.notes)
+                    })
+                    .catch()
+            }
+        }
+    }
 
     function handleCheck(e) {
         if(e.currentTarget.checked) {
@@ -36,7 +67,7 @@ export default function Folder(props) {
 
     let documents = isOpen ?
         <div className={'documents-block'}>
-            {folder?.notes.map(item => <Document document={item} key={item.externalId}/>)}
+            {notes?.map(item => <Document document={item} folderExternalId={folder.externalId} key={item.externalId}/>)}
             <p className={'create-note'} onClick={create}>{t("labels.createNote")}</p>
         </div> :
         null

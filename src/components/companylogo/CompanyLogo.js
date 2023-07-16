@@ -1,36 +1,60 @@
 import './companylogo.css'
 import {ObjectsToDeleteContext} from "../../conxtexts/objectstodeletecontext/objectsToDeleteContext";
-import {useContext, useEffect, useState} from "react";
+import {useContext, useState} from "react";
 import {useTranslation} from "react-i18next";
 import {deleteLocalNote} from "../../starter/localStorageHelper";
 import {CurrentNoteContext} from "../../conxtexts/currentnotecontext/currentNoteContext";
+import {deleteFolder, deleteNote} from "../../api/logicApi";
+import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
 
 export default function CompanyLogo() {
-    const {isSelected, objectToDelete, hasSelected} = useContext(ObjectsToDeleteContext)
-    const {setReloadFolders, setTabToHide, setCurrentNote} = useContext(CurrentNoteContext)
+    const {isSelected, objectToDelete, hasSelected, setObjectToDelete} = useContext(ObjectsToDeleteContext)
+    const {setReloadOnlyFolderTab, setTabToHide, setCurrentNote} = useContext(CurrentNoteContext)
+    const {setFolderIdToReload} = useContext(GlobalContext)
     const [isLocalFolderInDeleteList, hasLocalFolderInDeleteList] = useState(false)
     const {t} = useTranslation()
 
     function deleteObjects() {
+        let tabArr = []
+        console.log(objectToDelete)
         for(let folderExternalId of objectToDelete.checkedFolders) {
             if(folderExternalId.includes('local')) {
                 hasLocalFolderInDeleteList(true)
                 setTimeout(() => hasLocalFolderInDeleteList(false), 3000)
                 return
+            } else {
+                deleteFolder(folderExternalId).then(() => {
+                    console.log('folder-deleted')
+                    setTabToHide(tabArr)
+                    setReloadOnlyFolderTab(true)
+                    setCurrentNote(null)
+                })
+                    .catch()
             }
-            //Удаление папок на сервере
         }
-        let tabArr = []
-        for(let documentExternalId of objectToDelete.checkedDocuments) {
-            if(documentExternalId.includes('local-note')) {
-                deleteLocalNote(documentExternalId)
+        objectToDelete.checkedFolders = []
+        for(let document of objectToDelete.checkedDocuments) {
+            if(document.documentExternalId.includes('local-note')) {
+                deleteLocalNote(document.documentExternalId)
+                setFolderIdToReload(document.folderExternalId)
+                setCurrentNote(null)
+            } else {
+                deleteNote(document.documentExternalId)
+                    .then(() => {
+                        setTabToHide(tabArr)
+                        setReloadOnlyFolderTab(true)
+                        setFolderIdToReload(document.folderExternalId)
+                        setCurrentNote(null)
+                    })
+                    .catch(error => console.log(error))
             }
-            tabArr.push(documentExternalId)
+            tabArr.push(document.documentExternalId)
         }
+        objectToDelete.checkedDocuments = []
         setTabToHide(tabArr)
-        setReloadFolders(true)
         hasSelected(false)
         setCurrentNote(null)
+        setObjectToDelete(objectToDelete)
     }
 
     const localFolderMessage = isLocalFolderInDeleteList ? <span className={'local-folder-message'}>{t('messages.canNotDeleteLocalFolder')}</span> : null

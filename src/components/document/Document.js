@@ -6,13 +6,13 @@ import {CurrentNoteContext} from "../../conxtexts/currentnotecontext/currentNote
 import {ObjectsToDeleteContext} from "../../conxtexts/objectstodeletecontext/objectsToDeleteContext";
 
 export default function Document(props) {
-    const {document} = props
+    const {document, folderExternalId} = props
     const {addDocument, removeDocument} = useContext(FolderContext)
     const {setCurrentNote, hasInCreation} = useContext(CurrentNoteContext)
     const {hasSelected} = useContext(ObjectsToDeleteContext)
     function handleChange(e) {
         if(e.currentTarget.checked) {
-            addDocument(document.externalId)
+            addDocument(document.externalId, folderExternalId)
             hasSelected(true)
         } else {
             removeDocument(document.externalId)

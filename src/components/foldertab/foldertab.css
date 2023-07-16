@@ -2,3 +2,9 @@
     background-color: #4e4e4e;
     height: 100%;
 }
+
+.create-folder {
+    color: #626262;
+    cursor: pointer;
+    margin-left: 10px;
+}
