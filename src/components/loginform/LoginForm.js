@@ -1,17 +1,18 @@
 import './loginform.css'
 import {useContext, useState} from "react";
-import {AuthContext} from "../../conxtexts/authcontext/authContext";
+import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
 import {useTranslation} from "react-i18next";
 import {isStringEmpty} from "../../validators/stringValidator";
 import {login} from "../../api/authApi"
-import {deleteToken, setCurrentUser, setData} from "../../token/holder/tokenHolder";
+import {deleteToken, setData} from "../../token/holder/tokenHolder";
 import {getPersonalData} from "../../api/logicApi";
 import {CURRENT_USER_DATA} from "../../constants/tokenConstants";
+import {CurrentNoteContext} from "../../conxtexts/currentnotecontext/currentNoteContext";
 
 export default function LoginForm() {
     const {t} = useTranslation()
-    const {userData, setUserData} = useContext(AuthContext)
-
+    const {userData, setUserData} = useContext(GlobalContext)
+    const {setReloadFolders, setCurrentNote, hasCloseAllTabs} = useContext(CurrentNoteContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState({})
@@ -45,6 +46,7 @@ export default function LoginForm() {
                         .then(result => {
                             sessionStorage.setItem(CURRENT_USER_DATA, JSON.stringify(result))
                             setUserData(result)
+                            setReloadFolders(true)
                         })
                         .catch(status => setErrors(formErrorObject(status)))
                 })
@@ -56,6 +58,9 @@ export default function LoginForm() {
         deleteToken()
         sessionStorage.removeItem(CURRENT_USER_DATA)
         setUserData(null)
+        setReloadFolders(true)
+        setCurrentNote(null)
+        hasCloseAllTabs(true)
     }
 
     function formErrorObject(status) {

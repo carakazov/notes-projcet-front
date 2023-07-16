@@ -11,6 +11,10 @@ export function startLocalStorage() {
     }
 }
 
+export function reloadLocalStorage() {
+    return JSON.parse(localStorage.getItem(LOCAL_FOLDER))
+}
+
 export function getLocalNoteExternalId() {
     let folder = JSON.parse(localStorage.getItem(LOCAL_FOLDER))
     let number = folder.notes.length

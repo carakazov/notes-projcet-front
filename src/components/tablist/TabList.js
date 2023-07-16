@@ -8,7 +8,7 @@ export default function TabList() {
     const [tabs, setTabs] = useState([])
     const [workingArray, setWorkingArray] = useState([])
     const [currentStartIndex, setCurrentStartIndex] = useState(0)
-    const {currentNote, tabToHide} = useContext(CurrentNoteContext)
+    const {currentNote, tabToHide, isCloseAllTabs, hasCloseAllTabs} = useContext(CurrentNoteContext)
     const {t} = useTranslation()
     useEffect(() => {
         let arr = tabs
@@ -20,10 +20,16 @@ export default function TabList() {
         }
     }, [tabToHide])
 
-
+    useEffect(() => {
+        if(isCloseAllTabs) {
+            setTabs([])
+            hasCloseAllTabs(false)
+        }
+    }, [isCloseAllTabs])
 
     useEffect(() => {
         if(currentNote) {
+            console.log(currentNote.externalId)
             if(!tabs.find(item => item.externalId === currentNote.externalId)) {
                 setTabs([...tabs, currentNote])
             }
