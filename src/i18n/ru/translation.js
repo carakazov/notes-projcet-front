@@ -18,7 +18,8 @@ export const TRANSLATION_RU = {
         save: "Сохранить",
         delete: "Удалить",
         edit: "Изменить",
-        cancel: "Отмена"
+        cancel: "Отмена",
+        registration: "Регистрация"
     },
     errors: {
         auth: "Ошибка авторизации. Проверьте введённые данные",

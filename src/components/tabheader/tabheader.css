@@ -2,4 +2,31 @@
     color: white;
     background-color: #4e4e4e;
     height: 40px;
+    display: flex;
+}
+
+.tab-header-item {
+    flex: 1;
+}
+
+.tab-header-functions {
+    display: flex;
+    column-gap: 5px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.tab-header-button {
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background-color: #ff6969;
+    color: white;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.tab-header-button:active {
+    background-color: gray;
 }
