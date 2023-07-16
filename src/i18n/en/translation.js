@@ -18,7 +18,8 @@ export const TRANSLATION_EN = {
         save: "Save",
         delete: "Delete",
         edit: "Edit",
-        cancel: "Cancel"
+        cancel: "Cancel",
+        registration: "Registration"
     },
     errors: {
         auth: "Authorization error. Check your data",
