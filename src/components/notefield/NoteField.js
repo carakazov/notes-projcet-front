@@ -156,7 +156,9 @@ export default function NoteField() {
             <div className={'read-block'}>
                 <button className={'edit-button'} hidden={!currentNote} onClick={startEdit}>{t('buttons.edit')}</button>
                 <div className={'field-content'}>
-                    {content}
+                    <div className={'content-block'}>
+                        {content}
+                    </div>
                 </div>
             </div>
         )

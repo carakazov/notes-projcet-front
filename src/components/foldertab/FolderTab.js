@@ -72,7 +72,7 @@ export default function FolderTab() {
         <div className={'folder-tab'}>
             <FolderContext.Provider value={{folderData, addDocument, addFolder, removeDocument, removeFolder}}>
                 <div>
-                    {folders.map(item => <Folder folder={item} key={item.externalId}/>)}
+                    {folders.map(item => <Folder folder={item} key={item?.externalId}/>)}
                 </div>
                 <CreateFolderContext.Provider value={{hasFolderInCreation, setFolderTitle, createFolder}}>
                     {createFolderBlock}
