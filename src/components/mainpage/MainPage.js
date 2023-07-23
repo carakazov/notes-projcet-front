@@ -19,7 +19,7 @@ export default function MainPage() {
     const [reloadOnlyFolderTab, setReloadOnlyFolderTab] = useState(false)
     const [folderIdToReload, setFolderIdToReload] = useState()
     const [isCloseAllTabs, hasCloseAllTabs] = useState(false)
-    const {userData} = useContext(GlobalContext)
+    const {userData, handleFatalError} = useContext(GlobalContext)
 
     useEffect(() => {
         if(reloadFolders || reloadOnlyFolderTab) {
@@ -35,6 +35,7 @@ export default function MainPage() {
                     setReloadFolders(false)
                 }).catch(error => {
                     setReloadFolders(false)
+                    handleFatalError()
                 })
             } else {
                 setFolders(arr)

@@ -2,6 +2,7 @@ import {getToken} from "../token/holder/tokenHolder";
 
 export async function getPersonalData(externalId) {
     let token = await getToken()
+    console.log(`token - ${token}`)
     let result = await fetch(`${process.env.REACT_APP_LOGIC_BACKENG_URL}/client/${externalId}`, {
         method: 'GET',
         headers: getHeaders(token)

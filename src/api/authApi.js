@@ -1,3 +1,5 @@
+import {LOGIN_KEY, PASSWORD_KEY} from "../constants/tokenConstants";
+
 const LOGIN_URL = "/oauth/token"
 
 export async function login(loginData) {
@@ -19,4 +21,18 @@ export async function login(loginData) {
     })
 
     return response.ok ? await response.json() : Promise.reject(response.status)
+}
+
+export async function registerClient(body) {
+    let response = await fetch(`${process.env.REACT_APP_OAUTH_BACKEND_URL}/client`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+    if(response.ok) {
+        return await response.json()
+    }
+    return Promise.reject(response.status)
 }
