@@ -10,7 +10,7 @@ import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
 export default function CompanyLogo() {
     const {isSelected, objectToDelete, hasSelected, setObjectToDelete} = useContext(ObjectsToDeleteContext)
     const {setReloadOnlyFolderTab, setTabToHide, setCurrentNote, hasCloseAllTabs} = useContext(CurrentNoteContext)
-    const {setFolderIdToReload} = useContext(GlobalContext)
+    const {setFolderIdToReload, handleFatalError} = useContext(GlobalContext)
     const [isLocalFolderInDeleteList, hasLocalFolderInDeleteList] = useState(false)
     const {t} = useTranslation()
 
@@ -27,8 +27,7 @@ export default function CompanyLogo() {
                     hasCloseAllTabs(true)
                     setReloadOnlyFolderTab(true)
                     setCurrentNote(null)
-                })
-                    .catch()
+                }).catch(() => handleFatalError())
             }
         }
         objectToDelete.checkedFolders = []
@@ -45,7 +44,7 @@ export default function CompanyLogo() {
                         setFolderIdToReload(document.folderExternalId)
                         setCurrentNote(null)
                     })
-                    .catch(error => console.log(error))
+                    .catch(() => handleFatalError())
             }
             tabArr.push(document.documentExternalId)
         }

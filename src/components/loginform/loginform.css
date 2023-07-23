@@ -108,7 +108,7 @@
     font-family: Tahoma, serif;
 }
 
-.auth-success>button {
+.logout-button {
     height: 25px;
     width: 60px;
     margin-top: 7px;
@@ -117,12 +117,23 @@
     color: white;
     border: none;
     border-radius: 3px;
+    margin-right: 10px;
 }
 
 .auth-success>p {
-    margin: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
-.auth-success>button:active {
+.auth-success-item {
+    flex: 1;
+}
+
+.logout-button:active {
     background-color: grey;
+}
+
+.logout-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
 }

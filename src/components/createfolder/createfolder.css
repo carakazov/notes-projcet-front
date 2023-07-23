@@ -31,3 +31,9 @@
 .create-folder-button:active {
     background-color: gray;
 }
+
+.required-field-message {
+    color: #a33636;
+    font-size: 12px;
+    margin-top: 4px;
+}

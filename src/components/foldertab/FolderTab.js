@@ -14,6 +14,7 @@ import {createDirectory} from "../../api/logicApi";
 export default function FolderTab() {
     const {folders, setReloadFolders} = useContext(CurrentNoteContext)
     const {hasSelected, setObjectToDelete} = useContext(ObjectsToDeleteContext)
+    const {handleFatalError} = useContext(GlobalContext)
     const [folderData, setFolderData] = useState({
         checkedFolders: [],
         checkedDocuments: []
@@ -63,7 +64,7 @@ export default function FolderTab() {
             setReloadFolders(true)
             hasFolderInCreation(false)
         })
-            .catch(error => console.log(error))
+            .catch(() => handleFatalError())
     }
 
     const createFolderBlock = userData ? (isFolderInCreation ? <CreateFolder/> : <p className={'create-folder'} onClick={() => hasFolderInCreation(true)}>{t('labels.createFolder')}</p>) : null
@@ -74,7 +75,7 @@ export default function FolderTab() {
                 <div>
                     {folders.map(item => <Folder folder={item} key={item?.externalId}/>)}
                 </div>
-                <CreateFolderContext.Provider value={{hasFolderInCreation, setFolderTitle, createFolder}}>
+                <CreateFolderContext.Provider value={{hasFolderInCreation, setFolderTitle, createFolder, folderTitle}}>
                     {createFolderBlock}
                 </CreateFolderContext.Provider>
             </FolderContext.Provider>
