@@ -14,7 +14,9 @@ export const TRANSLATION_EN = {
         dateOfBirth: 'Birthdate',
         favoriteBook: 'Favorite book',
         favoriteFilm: 'Favorite film',
-        aboutYourself: 'Say something about yourself :)'
+        aboutYourself: 'Say something about yourself :)',
+        noAdditionalInfo: 'User did not add info about himself yet',
+        aboutMe: 'About me'
     },
     messages: {
         itIsRequiredField: "Required",
@@ -34,7 +36,9 @@ export const TRANSLATION_EN = {
         edit: "Edit",
         cancel: "Cancel",
         registration: "Registration",
-        toMain: 'toMain'
+        toMain: 'toMain',
+        homePage: 'My page',
+        change: 'Change info'
     },
     errors: {
         auth: "Authorization error. Check your data",

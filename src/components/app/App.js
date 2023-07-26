@@ -6,9 +6,10 @@ import {CURRENT_USER_DATA, LOCAL_FOLDER} from "../../constants/tokenConstants";
 import MainPage from "../mainpage/MainPage";
 import {startLocalStorage} from "../../starter/localStorageHelper";
 import RegisterPage from "../registerpage/RegisterPage";
-import {MAIN_PAGE_PATH, REGISTER_PAGE_PATH} from "../../constants/pathConstants";
+import {MAIN_PAGE_PATH, REGISTER_PAGE_PATH, USER_PAGE_PATH} from "../../constants/pathConstants";
 import {useTranslation} from "react-i18next";
 import {useNavigate} from "react-router";
+import UserPage from "../userpage/UserPage";
 
 function App() {
     const [userData, setUserData] = useState(JSON.parse(sessionStorage.getItem(CURRENT_USER_DATA)))
@@ -49,6 +50,7 @@ function App() {
               <Routes>
                   <Route exact path={MAIN_PAGE_PATH} element={<MainPage/>}></Route>
                   <Route exact path={REGISTER_PAGE_PATH} element={<RegisterPage/>}></Route>
+                  <Route exact path={USER_PAGE_PATH} element={<UserPage/>}></Route>
               </Routes>
           </GlobalContext.Provider>
         </main>

@@ -1,0 +1,19 @@
+.user-info-page {
+    background-color: #c2c2c2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.change-button {
+    height: 35px;
+    width: 120px;
+    margin-top: 7px;
+    background-color: #ff6969;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    margin-right: 700px;
+}

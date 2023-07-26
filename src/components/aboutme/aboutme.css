@@ -1,0 +1,11 @@
+.about-me-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    row-gap: 10px;
+}
+
+.about-me-textarea {
+    height: 500px;
+    padding: 5px;
+}
