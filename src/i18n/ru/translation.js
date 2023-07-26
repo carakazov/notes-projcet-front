@@ -6,7 +6,10 @@ export const TRANSLATION_RU = {
         createNote: "+ Создать документ",
         createFolder: "+ Создать папку",
         next: 'След.',
-        prev: 'Пред.'
+        prev: 'Пред.',
+        move: 'перенести',
+        currentNote: 'Записка',
+        folder: 'Папка'
     },
     messages: {
         itIsRequiredField: "Обязательно",

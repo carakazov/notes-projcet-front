@@ -6,7 +6,10 @@ export const TRANSLATION_EN = {
         createNote: "+ Create note",
         createFolder: "+ Create folder",
         next: 'Next',
-        prev: 'Prev'
+        prev: 'Prev',
+        move: 'move',
+        currentNote: 'Note',
+        folder: 'Folder'
     },
     messages: {
         itIsRequiredField: "Required",

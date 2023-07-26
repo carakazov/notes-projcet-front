@@ -111,6 +111,18 @@ export async function noteUpdate(newNote, externalId) {
     return Promise.reject()
 }
 
+export async function moveNote(moveRequest) {
+    let token = await getToken()
+    let result = await fetch(`${process.env.REACT_APP_LOGIC_BACKENG_URL}/note`, {
+        method: 'PUT',
+        headers: getHeaders(token),
+        body: JSON.stringify(moveRequest)
+    })
+    if(result.ok) {
+        return Promise.resolve()
+    }
+    return Promise.reject()
+}
 
 function getHeaders(token) {
     return {
