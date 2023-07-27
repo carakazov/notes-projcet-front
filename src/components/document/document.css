@@ -11,3 +11,23 @@
 .document-control {
     display: flex;
 }
+
+.move {
+    border-radius: 3px;
+    width: fit-content;
+    padding: 2px;
+    justify-content: flex-end;
+}
+
+.document-control-item {
+    flex: 1;
+}
+
+.title-block {
+    display: flex;
+}
+
+.move:hover {
+    background-color: gray;
+    cursor: pointer;
+}

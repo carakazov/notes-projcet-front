@@ -2,7 +2,6 @@ import {getToken} from "../token/holder/tokenHolder";
 
 export async function getPersonalData(externalId) {
     let token = await getToken()
-    console.log(`token - ${token}`)
     let result = await fetch(`${process.env.REACT_APP_LOGIC_BACKENG_URL}/client/${externalId}`, {
         method: 'GET',
         headers: getHeaders(token)
@@ -105,6 +104,19 @@ export async function noteUpdate(newNote, externalId) {
         method: 'PUT',
         headers: getHeaders(token),
         body: JSON.stringify(newNote)
+    })
+    if(result.ok) {
+        return Promise.resolve()
+    }
+    return Promise.reject()
+}
+
+export async function moveNote(moveRequest) {
+    let token = await getToken()
+    let result = await fetch(`${process.env.REACT_APP_LOGIC_BACKENG_URL}/note`, {
+        method: 'PUT',
+        headers: getHeaders(token),
+        body: JSON.stringify(moveRequest)
     })
     if(result.ok) {
         return Promise.resolve()

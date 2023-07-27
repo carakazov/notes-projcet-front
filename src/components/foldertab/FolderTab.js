@@ -10,6 +10,7 @@ import {useTranslation} from "react-i18next";
 import {CreateFolderContext} from "../../conxtexts/createfoldercontext/createFolderContext";
 import CreateFolder from "../createfolder/CreateFolder";
 import {createDirectory} from "../../api/logicApi";
+import Modal from "../modal/Modal";
 
 export default function FolderTab() {
     const {folders, setReloadFolders} = useContext(CurrentNoteContext)
@@ -23,6 +24,8 @@ export default function FolderTab() {
     const {t} = useTranslation()
     const [isFolderInCreation, hasFolderInCreation] = useState(false)
     const [folderTitle, setFolderTitle] = useState("")
+    const [modalActive, setModalActive] = useState(false)
+    const [movingDocument, setMovingDocument] = useState()
 
     function checkLists() {
         if(folderData.checkedFolders.length === 0 && folderData.checkedDocuments.length === 0) {
@@ -71,13 +74,14 @@ export default function FolderTab() {
 
     return(
         <div className={'folder-tab'}>
-            <FolderContext.Provider value={{folderData, addDocument, addFolder, removeDocument, removeFolder}}>
+            <FolderContext.Provider value={{folderData, addDocument, addFolder, removeDocument, removeFolder, modalActive, setModalActive, movingDocument, setMovingDocument}}>
                 <div>
                     {folders.map(item => <Folder folder={item} key={item?.externalId}/>)}
                 </div>
                 <CreateFolderContext.Provider value={{hasFolderInCreation, setFolderTitle, createFolder, folderTitle}}>
                     {createFolderBlock}
                 </CreateFolderContext.Provider>
+                <Modal active={modalActive} setActive={setModalActive}/>
             </FolderContext.Provider>
         </div>
     )
