@@ -1,0 +1,55 @@
+.edit-data-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.edit-data-block {
+    display: flex;
+    column-gap: 20px;
+    width: 50%;
+    min-width: 700px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.edit-data-labels {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+
+.edit-data-inputs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.edit-data-input {
+    height: 35px;
+    width: 300px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.edit-data-form-item {
+    border: black solid 1px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #393939;
+    color: white;
+}
+
+.change-button-editing {
+    margin-left: 120px;
+}
+
+.edit-block {
+    display: flex;
+    column-gap: 10px;
+}
+
+.error-message {
+    margin-top: 10px;
+}

@@ -25,6 +25,7 @@ export const TRANSLATION_RU = {
         pickCorrectDate: 'Выберите корректную дату',
         inputCorrectEmail: 'Введите email',
         lengthFrom5to255: 'От 5 до 255 символов',
+        lessThan3000Symbols: 'Должно быть меньше 3000 символов',
         loginTaken: 'Такой логин уже занят',
         fatalError: 'Неизвестная ошибка на сервере. Простите :('
     },

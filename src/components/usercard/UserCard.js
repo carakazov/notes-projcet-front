@@ -10,7 +10,7 @@ export default function UserCard(props) {
     const navigate = useNavigate()
     const favoriteBook = userInfo.additionalInfo.filter(item => item.type === 'favoriteBook')?.at(0)
     const favoriteFilm = userInfo.additionalInfo.filter(item => item.type === 'favoriteFilm')?.at(0)
-    const aboutMe = userInfo.additionalInfo.filter(item => item.type === 'aboutMe')?.at(0)
+    const aboutMe = userInfo.additionalInfo.filter(item => item.type === 'aboutMe')?.at(0)?.value
 
 
     const favoriteBookBlock = favoriteFilm ? <p className={'additional-info-line'}>{`${t('labels.favoriteBook')} - ${favoriteBook.value}`}</p> : null
@@ -23,7 +23,7 @@ export default function UserCard(props) {
         additionalInfoBlock =
         <Fragment>
             {favoriteBookBlock}
-            {favoriteBookBlock}
+            {favoriteFilmBlock}
             <AboutMe content={aboutMe} userInfo={userInfo} updatedFunction={updatedFunction}/>
         </Fragment>
     }

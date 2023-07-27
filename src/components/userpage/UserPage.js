@@ -5,6 +5,7 @@ import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
 import {getPersonalData} from "../../api/logicApi";
 import UserCard from "../usercard/UserCard";
 import {useTranslation} from "react-i18next";
+import EditData from "../editdata/EditData";
 
 export default function UserPage() {
     const params = useParams()
@@ -14,6 +15,11 @@ export default function UserPage() {
     const [userInfo, setUserInfo] = useState()
     const [isCurrentUserPage, hasCurrentUserPage] = useState(false)
     const [isDataUpdated, hasDataUpdated] = useState(true)
+    const [isEditingInProcess, hasEditingInProcess] = useState(false)
+
+    function stopEditing() {
+        hasEditingInProcess(false)
+    }
 
     useEffect(() => {
         if(isDataUpdated) {
@@ -27,11 +33,15 @@ export default function UserPage() {
         }
     }, [isDataUpdated])
 
-    const changeButton = isCurrentUserPage ? <button className={'change-button'}>{t('buttons.change')}</button> : null
+    const editButtonClassName = isEditingInProcess ? 'change-button change-button-editing' : 'change-button'
+
+    const changeButton = isCurrentUserPage ? <button onClick={() => hasEditingInProcess(!isEditingInProcess)} className={editButtonClassName}>{t('buttons.change')}</button> : null
+    const userCard = isEditingInProcess ? <EditData userInfo={userInfo} stopEditing={stopEditing} updatedFunction={hasDataUpdated}/> : userInfo ? <UserCard userInfo={userInfo} updatedFunction={hasDataUpdated}/> : null
+
 
     return(
         <div className={'user-info-page'}>
-            {userInfo ? <UserCard userInfo={userInfo} updatedFunction={hasDataUpdated}/> : null}
+            {userCard}
             {changeButton}
         </div>
     )

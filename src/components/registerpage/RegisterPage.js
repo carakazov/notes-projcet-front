@@ -31,7 +31,6 @@ export default function RegisterPage() {
     const [serverError, setServerError] = useState()
 
     function validate() {
-        console.log(username)
         let correct = true
         let errorObject = {}
         if(isStringEmpty(username)) {
