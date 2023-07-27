@@ -14,7 +14,9 @@ export const TRANSLATION_EN = {
         dateOfBirth: 'Birthdate',
         favoriteBook: 'Favorite book',
         favoriteFilm: 'Favorite film',
-        aboutYourself: 'Say something about yourself :)'
+        aboutYourself: 'Say something about yourself :)',
+        noAdditionalInfo: 'User did not add info about himself yet',
+        aboutMe: 'About me'
     },
     messages: {
         itIsRequiredField: "Required",
@@ -23,6 +25,7 @@ export const TRANSLATION_EN = {
         pickCorrectDate: 'Pick correct date',
         inputCorrectEmail: 'Input correct email',
         lengthFrom5to255: 'From 5 to 255 symbols',
+        lessThan3000Symbols: 'Less than 3000 symbols',
         loginTaken: 'Such login already exists',
         fatalError: 'Unexpected server error occurred. Sorry :('
     },
@@ -34,7 +37,9 @@ export const TRANSLATION_EN = {
         edit: "Edit",
         cancel: "Cancel",
         registration: "Registration",
-        toMain: 'toMain'
+        toMain: 'toMain',
+        homePage: 'My page',
+        change: 'Change info'
     },
     errors: {
         auth: "Authorization error. Check your data",

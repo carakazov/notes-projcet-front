@@ -19,7 +19,19 @@ export default function TabHeader() {
         navigate(REGISTER_PAGE_PATH)
     }
 
-    let registerButton = userData ? null : <button onClick={register} className={'tab-header-button'}>{t('buttons.registration')}</button>
+    function getRegistrationButton() {
+        return <button onClick={register} className={'tab-header-button'}>{t('buttons.registration')}</button>
+    }
+
+    function homePage() {
+        navigate(`/user/${userData.externalId}`)
+    }
+
+    function getHomePageButton() {
+        return <button onClick={homePage} className={'tab-header-button'}>{t('buttons.homePage')}</button>
+    }
+
+    let registerButton = userData ? getHomePageButton() :getRegistrationButton()
 
     return(
         <div className={'tab-header'}>
