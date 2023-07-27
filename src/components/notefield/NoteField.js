@@ -5,9 +5,11 @@ import {useTranslation} from "react-i18next";
 import {isStringEmpty} from "../../validators/stringValidator";
 import {addLocalNote, editLocalNote, getLocalNoteExternalId} from "../../starter/localStorageHelper";
 import {createNote, noteUpdate, readNote} from "../../api/logicApi";
+import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
 
 export default function NoteField() {
     const {currentNote, isInCreation, creationDirectory, setCurrentNote, hasInCreation, setReloadFolders, isEditInProcess, hasEditInProcess} = useContext(CurrentNoteContext)
+    const {handleFatalError} = useContext(GlobalContext)
     const [newContent, setNewContent] = useState("")
     const [newTitle, setNewTitle] = useState("")
     const [content, setContent] = useState("")
@@ -27,7 +29,7 @@ export default function NoteField() {
                         .then(result => {
                             setContent(result.note.content)
                         })
-                        .catch(e => console.log(e))
+                        .catch(() => handleFatalError())
                 } else {
                     setContent(currentNote.content)
                 }
@@ -80,7 +82,6 @@ export default function NoteField() {
             }
             createNote(note)
                 .then(result => {
-                    console.log(result)
                     readNote(result.externalId)
                         .then(createdNote => {
                             hasInCreation(false)
@@ -89,8 +90,8 @@ export default function NoteField() {
                             setCurrentNote(createdNote.note)
                             setReloadFolders(true)
                         })
-                        .catch()
-                }).catch()
+                        .catch(() => handleFatalError())
+                }).catch(() => handleFatalError())
         }
     }
 
@@ -112,7 +113,7 @@ export default function NoteField() {
                         hasEditInProcess(false)
                         hasInCreation(false)
                         setReloadFolders(true)
-                    }).catch(error => console.log(error))
+                    }).catch(() => handleFatalError())
             }
         }
     }
@@ -128,18 +129,28 @@ export default function NoteField() {
             errorObject.contentRequired = t('messages.itIsRequiredField')
             correct = false
         }
+        if(newTitle.length > 125) {
+            errorObject.titleTooLong = `${t('messages.maxLength')} 125`
+            correct = false
+        }
+        if(newContent.length > 3064) {
+            errorObject.contentTooLong = `${t('messages.maxLength')} 3064`
+            correct = false
+        }
         setErrors(errorObject)
         return correct
     }
 
     function getWriteMode() {
         return(
-            <div className={'field-content'}>
+            <div className={'field-content field-content-write'}>
                 <div className={'creation-field'}>
                     <input className={'title-input'} onChange={e => setNewTitle(e.currentTarget.value)} disabled={isEditInProcess} value={isEditInProcess ? currentNote.title : null}/>
                     <p className={'required-field-message'}>{errors.titleRequired}</p>
+                    <p className={'required-field-message'}>{errors.titleTooLong}</p>
                     <textarea className={'content-input'} onChange={e => setNewContent(e.currentTarget.value)} readOnly={false} defaultValue={isEditInProcess ? content : ""}/>
                     <p className={'required-field-message'}>{errors.contentRequired}</p>
+                    <p className={'required-field-message'}>{errors.contentTooLong}</p>
                     <button className={'save-button'} onClick={save}>{t("buttons.save")}</button>
                 </div>
             </div>
@@ -156,7 +167,9 @@ export default function NoteField() {
             <div className={'read-block'}>
                 <button className={'edit-button'} hidden={!currentNote} onClick={startEdit}>{t('buttons.edit')}</button>
                 <div className={'field-content'}>
-                    {content}
+                    <div className={'content-block'}>
+                        {content}
+                    </div>
                 </div>
             </div>
         )

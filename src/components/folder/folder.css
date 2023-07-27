@@ -23,12 +23,6 @@
     font-size: 1rem;
 }
 
-@media screen and (min-width: 2500px) {
-    .folder-controls {
-        font-size: 3rem;
-    }
-}
-
 .folder-check-box {
     margin-top: 2px;
 }

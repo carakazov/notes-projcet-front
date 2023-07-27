@@ -124,6 +124,19 @@ export async function moveNote(moveRequest) {
     return Promise.reject()
 }
 
+export async function updateClient(body) {
+    let token = await getToken()
+    let result = await fetch(`${process.env.REACT_APP_LOGIC_BACKENG_URL}/client?createNew=true`, {
+        method: 'PUT',
+        headers: getHeaders(token),
+        body: JSON.stringify(body)
+    })
+    if(result.ok) {
+        return await result.json()
+    }
+    return Promise.reject(result.status)
+}
+
 function getHeaders(token) {
     return {
         'Content-type': 'application/json',

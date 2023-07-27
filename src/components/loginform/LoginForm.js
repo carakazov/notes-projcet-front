@@ -76,8 +76,10 @@ export default function LoginForm() {
     if(userData !== null) {
         return(
             <div className={'auth-success'}>
-                <p>{userData.surname} {userData.name}</p>
-                <button onClick={logOut}>{t("buttons.logout")}</button>
+                <p className={'auth-success-item'}>{userData.surname} {userData.name}</p>
+                <div className={'logout-button-wrapper auth-success-item'}>
+                    <button className={'logout-button'} onClick={logOut}>{t("buttons.logout")}</button>
+                </div>
             </div>
         )
     }

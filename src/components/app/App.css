@@ -7,3 +7,31 @@
 body {
   overflow-y: hidden;
 }
+
+
+.fatal-error-message-wrapper {
+  font-family: Tahoma, serif;
+}
+
+.fatal-error-page {
+  background-color: #c2c2c2;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.to-main-button {
+  height: 30px;
+  width: 120px;
+  margin-top: 7px;
+  background-color: #ff6969;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+}
+
+.to-main-button:active {
+  background-color: grey;
+}

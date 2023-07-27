@@ -17,7 +17,7 @@ export default function Folder(props) {
     const {setCreationDirectory, hasInCreation, hasEditInProcess, reloadFolders} = useContext(CurrentNoteContext)
     const [notes, setNotes] = useState()
     const {hasSelected} = useContext(ObjectsToDeleteContext)
-    const {userData, folderIdToReload, setFolderIdToReload} = useContext(GlobalContext)
+    const {userData, folderIdToReload, setFolderIdToReload, handleFatalError} = useContext(GlobalContext)
     let arrowClassName = isOpen ? "arrow open" : "arrow"
 
     useEffect(() => {
@@ -41,7 +41,7 @@ export default function Folder(props) {
                     .then(result => {
                         setNotes(result.notes)
                     })
-                    .catch()
+                    .catch(() => handleFatalError())
             }
         }
     }
