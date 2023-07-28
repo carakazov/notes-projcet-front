@@ -137,6 +137,18 @@ export async function updateClient(body) {
     return Promise.reject(result.status)
 }
 
+export async function getAllClients() {
+    let token = await getToken()
+    let result = await fetch(`${process.env.REACT_APP_LOGIC_BACKENG_URL}/client/list`, {
+        method: 'GET',
+        headers: getHeaders(token)
+    })
+    if(result.ok) {
+        return await result.json()
+    }
+    return Promise.reject()
+}
+
 function getHeaders(token) {
     return {
         'Content-type': 'application/json',

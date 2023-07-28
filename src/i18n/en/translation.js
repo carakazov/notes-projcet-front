@@ -42,7 +42,9 @@ export const TRANSLATION_EN = {
         registration: "Registration",
         toMain: 'toMain',
         homePage: 'My page',
-        change: 'Change info'
+        change: 'Change info',
+        toPage: 'To page',
+        toList: 'All users'
     },
     errors: {
         auth: "Authorization error. Check your data",
@@ -50,6 +52,7 @@ export const TRANSLATION_EN = {
     },
     placeholders: {
         title: 'title',
-        content: 'content'
+        content: 'content',
+        search: 'search'
     }
 }

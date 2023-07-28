@@ -42,7 +42,9 @@ export const TRANSLATION_RU = {
         registration: "Регистрация",
         toMain: 'На главную',
         homePage: 'Моя страница',
-        change: 'Изменить данные'
+        change: 'Изменить данные',
+        toPage: 'Личная страница',
+        toList: 'Все пользователи'
     },
     errors: {
         auth: "Ошибка авторизации. Проверьте введённые данные",
@@ -50,6 +52,7 @@ export const TRANSLATION_RU = {
     },
     placeholders: {
         title: 'Название',
-        content: 'Содержание'
+        content: 'Содержание',
+        search: 'search'
     }
 }
