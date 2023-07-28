@@ -1,0 +1,32 @@
+.client-info-wrapper {
+    background-color: #393939;
+    border: black solid 1px;
+    border-radius: 5px;
+    display: flex;
+    height: 35px;
+    padding: 10px;
+}
+
+.client-info-item {
+    flex: 1;
+}
+
+.go-to-page-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.go-to-page-button {
+    height: 20px;
+    background-color: #ff6969;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.go-to-page-button:active {
+    background-color: grey;
+}

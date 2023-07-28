@@ -1,10 +1,10 @@
 import './tabheader.css'
 import TabList from "../tablist/TabList";
 import {useTranslation} from "react-i18next";
-import {useContext} from "react";
+import {Fragment, useContext} from "react";
 import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
 import {useNavigate} from "react-router";
-import {REGISTER_PAGE_PATH} from "../../constants/pathConstants";
+import {LIST_PAGE_PATH, REGISTER_PAGE_PATH} from "../../constants/pathConstants";
 
 export default function TabHeader() {
     const {t, i18n} = useTranslation()
@@ -27,8 +27,17 @@ export default function TabHeader() {
         navigate(`/user/${userData.externalId}`)
     }
 
+    function list() {
+        navigate(LIST_PAGE_PATH)
+    }
+
     function getHomePageButton() {
-        return <button onClick={homePage} className={'tab-header-button'}>{t('buttons.homePage')}</button>
+        return (
+            <Fragment>
+                <button onClick={homePage} className={'tab-header-button'}>{t('buttons.homePage')}</button>
+                <button onClick={list} className={'tab-header-button'}>{t('buttons.toList')}</button>
+            </Fragment>
+        )
     }
 
     let registerButton = userData ? getHomePageButton() :getRegistrationButton()
