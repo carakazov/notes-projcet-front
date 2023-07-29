@@ -33,3 +33,8 @@
     width: 50%;
     min-width: 700px;
 }
+
+.user-page-controls {
+    display: flex;
+    column-gap: 5px;
+}

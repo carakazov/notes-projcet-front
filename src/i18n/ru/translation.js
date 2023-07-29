@@ -19,7 +19,12 @@ export const TRANSLATION_RU = {
         favoriteFilm: 'Любимый фильм',
         aboutYourself: 'Расскажите что-нибудь о себе :)',
         noAdditionalInfo: 'Пользователь пока о себе ничего не написал',
-        aboutMe: 'Обо мне:'
+        aboutMe: 'Обо мне:',
+        read: 'Чтение',
+        write: 'Чтение и запись',
+        loading: 'Загрузка...',
+        grantFor: 'Доступ для',
+        accessGranted: 'Доступ успешно предоставлен'
     },
     messages: {
         itIsRequiredField: "Обязательно",
@@ -44,7 +49,8 @@ export const TRANSLATION_RU = {
         homePage: 'Моя страница',
         change: 'Изменить данные',
         toPage: 'Личная страница',
-        toList: 'Все пользователи'
+        toList: 'Все пользователи',
+        grantAccess: 'Дать доступ'
     },
     errors: {
         auth: "Ошибка авторизации. Проверьте введённые данные",

@@ -149,6 +149,19 @@ export async function getAllClients() {
     return Promise.reject()
 }
 
+export async function grantAccess(request) {
+    let token = await getToken()
+    let result = await fetch(`${process.env.REACT_APP_LOGIC_BACKENG_URL}/note/changeAccess`, {
+        method: 'POST',
+        headers: getHeaders(token),
+        body: JSON.stringify(request)
+    })
+    if(result.ok) {
+        return Promise.resolve()
+    }
+    return Promise.reject()
+}
+
 function getHeaders(token) {
     return {
         'Content-type': 'application/json',
