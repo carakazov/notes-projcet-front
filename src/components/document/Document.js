@@ -5,6 +5,7 @@ import {CURRENT_DOCUMENT} from "../../constants/tokenConstants";
 import {CurrentNoteContext} from "../../conxtexts/currentnotecontext/currentNoteContext";
 import {ObjectsToDeleteContext} from "../../conxtexts/objectstodeletecontext/objectsToDeleteContext";
 import {useTranslation} from "react-i18next";
+import {useNavigate} from "react-router";
 
 export default function Document(props) {
     const {document, folderExternalId} = props
@@ -12,6 +13,7 @@ export default function Document(props) {
     const {setCurrentNote, hasInCreation} = useContext(CurrentNoteContext)
     const {hasSelected} = useContext(ObjectsToDeleteContext)
     const {t} = useTranslation()
+    const navigate = useNavigate()
     function handleChange(e) {
         if(e.currentTarget.checked) {
             addDocument(document.externalId, folderExternalId)
@@ -31,8 +33,15 @@ export default function Document(props) {
         setMovingDocument(document)
     }
 
+    function goToAccessors() {
+        navigate(`/access/${document.externalId}`)
+    }
+
     const moveButton = folderExternalId.includes('local') ? null : <div className={'document-control-item'}>
         <p onClick={moveDocument} className={'move'}>{t('labels.move')}</p>
+    </div>
+    const accessButtons = folderExternalId.includes('local') ? null : <div className={'document-control-item'}>
+        <p onClick={goToAccessors} className={'move'}>{t('labels.accessors')}</p>
     </div>
 
     return(
@@ -43,6 +52,7 @@ export default function Document(props) {
                     <p className={'document-title'} onClick={setContent}>{document.title}</p>
                 </div>
                 {moveButton}
+                {accessButtons}
             </div>
         </div>
     )

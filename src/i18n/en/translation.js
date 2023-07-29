@@ -24,7 +24,9 @@ export const TRANSLATION_EN = {
         write: 'Read and write',
         loading: 'Loading...',
         grantFor: 'Grant access for',
-        accessGranted: 'Access successfully granted'
+        accessGranted: 'Access successfully granted',
+        showAccess: 'accessors',
+        onlyYouHaveAccess: 'Only you have access to this note'
     },
     messages: {
         itIsRequiredField: "Required",
@@ -50,7 +52,8 @@ export const TRANSLATION_EN = {
         change: 'Change info',
         toPage: 'To page',
         toList: 'All users',
-        grantAccess: 'Grant access'
+        grantAccess: 'Grant access',
+        denyAccess: 'Deny access'
     },
     errors: {
         auth: "Authorization error. Check your data",

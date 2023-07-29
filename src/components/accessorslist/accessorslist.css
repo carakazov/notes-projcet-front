@@ -1,0 +1,40 @@
+.accessors-list-page {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #626262;
+    color: white;
+    justify-content: center;
+    font-family: Tahoma, serif;
+}
+
+.accessors-list-wrapper {
+    margin-top: 10px;
+    margin-left: 150px;
+    display: flex;
+    column-gap: 10px;
+    width: min(80%, 800px);
+}
+
+.accessors-block {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    max-height: 400px;
+}
+
+.accessors-list-wrapper-item {
+    flex: 1;
+}
+
+.go-home-button {
+    background-color: #ff6969;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.go-home-button:active {
+    background-color: grey;
+}

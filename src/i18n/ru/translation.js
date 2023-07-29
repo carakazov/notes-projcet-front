@@ -24,7 +24,9 @@ export const TRANSLATION_RU = {
         write: 'Чтение и запись',
         loading: 'Загрузка...',
         grantFor: 'Доступ для',
-        accessGranted: 'Доступ успешно предоставлен'
+        accessGranted: 'Доступ успешно предоставлен',
+        accessors: 'доступы',
+        onlyYouHaveAccess: 'Только у вас есть доступ к этой записке'
     },
     messages: {
         itIsRequiredField: "Обязательно",
@@ -50,7 +52,8 @@ export const TRANSLATION_RU = {
         change: 'Изменить данные',
         toPage: 'Личная страница',
         toList: 'Все пользователи',
-        grantAccess: 'Дать доступ'
+        grantAccess: 'Дать доступ',
+        denyAccess: 'Отменить доступ'
     },
     errors: {
         auth: "Ошибка авторизации. Проверьте введённые данные",
