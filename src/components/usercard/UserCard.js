@@ -1,9 +1,10 @@
 import './usercard.css'
 import {useTranslation} from "react-i18next";
 import {useNavigate} from "react-router";
-import {Fragment, useContext} from "react";
+import {Fragment, useContext, useState} from "react";
 import AboutMe from "../aboutme/AboutMe";
 import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
+import ChangePasswordForm from "../changepasswordform/ChangePasswordForm";
 
 export default function UserCard(props) {
     const {userInfo, updatedFunction} = props
@@ -13,7 +14,7 @@ export default function UserCard(props) {
     const favoriteBook = userInfo.additionalInfo.filter(item => item.type === 'favoriteBook')?.at(0)
     const favoriteFilm = userInfo.additionalInfo.filter(item => item.type === 'favoriteFilm')?.at(0)
     const aboutMe = userInfo.additionalInfo.filter(item => item.type === 'aboutMe')?.at(0)?.value
-
+    const [isPasswordInChange, hasPasswordInChange] = useState(false)
 
     const favoriteBookBlock = favoriteFilm ? <p className={'additional-info-line'}>{`${t('labels.favoriteBook')} - ${favoriteBook.value}`}</p> : null
     const favoriteFilmBlock = favoriteFilm ? <p className={'additional-info-line'}>{`${t('labels.favoriteFilm')} - ${favoriteFilm.value}`}</p> : null
@@ -35,6 +36,13 @@ export default function UserCard(props) {
     }
 
     const toAccessGrantButton = userData.externalId !== userInfo.externalId ? <button onClick={toAccessGrant} className={'to-main-button'}>{t('buttons.grantAccess')}</button> : null
+    const changePassword = userData.externalId === userInfo.externalId && !isPasswordInChange ? <button onClick={() => hasPasswordInChange(true)} className={'to-main-button'}>{t('buttons.changePassword')}</button> : null
+
+    function cancelFunction() {
+        hasPasswordInChange(false)
+    }
+
+    const changePasswordBlock = isPasswordInChange ? <ChangePasswordForm cancelFunction={cancelFunction}/> : null
 
     return(
         <div className={'user-card-wrapper'}>
@@ -59,6 +67,8 @@ export default function UserCard(props) {
             <div className={'user-page-controls'}>
                 <button onClick={() => navigate("/")} className={'to-main-button'}>{t('buttons.toMain')}</button>
                 {toAccessGrantButton}
+                {changePassword}
+                {changePasswordBlock}
             </div>
         </div>
     )

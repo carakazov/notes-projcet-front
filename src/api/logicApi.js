@@ -200,6 +200,21 @@ export async function getMyAccessedNotes() {
     return Promise.reject()
 }
 
+export async function changePassword(request) {
+    let token = await getToken()
+    let result = await fetch(`${process.env.REACT_APP_OAUTH_BACKEND_URL}/client/changePassword`, {
+        method: 'PUT',
+        headers: getHeaders(token),
+        body: JSON.stringify(request)
+    })
+
+    if(result.ok) {
+        return Promise.resolve()
+    }
+
+    return Promise.reject(result.status)
+}
+
 function getHeaders(token) {
     return {
         'Content-type': 'application/json',

@@ -26,7 +26,9 @@ export const TRANSLATION_EN = {
         grantFor: 'Grant access for',
         accessGranted: 'Access successfully granted',
         showAccess: 'accessors',
-        onlyYouHaveAccess: 'Only you have access to this note'
+        onlyYouHaveAccess: 'Only you have access to this note',
+        oldPassword: 'Old password',
+        newPassword: 'New password'
     },
     messages: {
         itIsRequiredField: "Required",
@@ -37,7 +39,8 @@ export const TRANSLATION_EN = {
         lengthFrom5to255: 'From 5 to 255 symbols',
         lessThan3000Symbols: 'Less than 3000 symbols',
         loginTaken: 'Such login already exists',
-        fatalError: 'Unexpected server error occurred. Sorry :('
+        fatalError: 'Unexpected server error occurred. Sorry :(',
+        checkInputData: 'Check input data'
     },
     buttons: {
         login: "Log In",
@@ -54,7 +57,8 @@ export const TRANSLATION_EN = {
         toList: 'All users',
         grantAccess: 'Grant access',
         denyAccess: 'Deny access',
-        toAccessedNotes: 'To accessed notes'
+        toAccessedNotes: 'To accessed notes',
+        changePassword: 'Change password'
     },
     errors: {
         auth: "Authorization error. Check your data",
