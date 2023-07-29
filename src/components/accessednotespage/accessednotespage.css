@@ -1,0 +1,29 @@
+.accessed-notes-page {
+    background-color: #626262;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.accessed-notes-wrapper {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+.notes-tab {
+    width: 200px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.accessed-note-wrapper {
+    border: black solid 1px;
+    width: 600px;
+    height: 500px;
+    background-color: #393939;
+    border-radius: 5px;
+}

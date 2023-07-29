@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 import {Fragment, useContext} from "react";
 import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
 import {useNavigate} from "react-router";
-import {LIST_PAGE_PATH, REGISTER_PAGE_PATH} from "../../constants/pathConstants";
+import {ACCESSED_NOTES_PATH, LIST_PAGE_PATH, REGISTER_PAGE_PATH} from "../../constants/pathConstants";
 
 export default function TabHeader() {
     const {t, i18n} = useTranslation()
@@ -31,11 +31,16 @@ export default function TabHeader() {
         navigate(LIST_PAGE_PATH)
     }
 
+    function toAccessedNotes() {
+        navigate(ACCESSED_NOTES_PATH)
+    }
+
     function getHomePageButton() {
         return (
             <Fragment>
                 <button onClick={homePage} className={'tab-header-button'}>{t('buttons.homePage')}</button>
                 <button onClick={list} className={'tab-header-button'}>{t('buttons.toList')}</button>
+                <button onClick={toAccessedNotes} className={'tab-header-button'}>{t('buttons.toAccessedNotes')}</button>
             </Fragment>
         )
     }

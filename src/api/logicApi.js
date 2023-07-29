@@ -187,6 +187,19 @@ export async function denyNote(noteExternalId, userExternalId) {
     return Promise.reject()
 }
 
+export async function getMyAccessedNotes() {
+    let token = await getToken()
+    let result = await fetch(`${process.env.REACT_APP_LOGIC_BACKENG_URL}/note/myAccess`, {
+        method: 'GET',
+        headers: getHeaders(token)
+    })
+    if(result.ok) {
+        return await result.json()
+    }
+
+    return Promise.reject()
+}
+
 function getHeaders(token) {
     return {
         'Content-type': 'application/json',

@@ -1,0 +1,12 @@
+.accessed-document-wrapper {
+    border: black solid 1px;
+    border-radius: 5px;
+    height: 30px;
+    padding: 5px;
+    background-color: #393939;
+    cursor: pointer;
+}
+
+.accessed-document-wrapper:active {
+    background-color: grey;
+}

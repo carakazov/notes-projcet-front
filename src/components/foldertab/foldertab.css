@@ -3,6 +3,11 @@
     height: 100%;
 }
 
+.folder-wrapper {
+    max-height: 80%;
+    overflow-y: auto;
+}
+
 .create-folder {
     color: #626262;
     cursor: pointer;
