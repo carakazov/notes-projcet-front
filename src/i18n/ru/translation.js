@@ -53,7 +53,8 @@ export const TRANSLATION_RU = {
         toPage: 'Личная страница',
         toList: 'Все пользователи',
         grantAccess: 'Дать доступ',
-        denyAccess: 'Отменить доступ'
+        denyAccess: 'Отменить доступ',
+        toAccessedNotes: 'К общим запискам'
     },
     errors: {
         auth: "Ошибка авторизации. Проверьте введённые данные",

@@ -75,7 +75,7 @@ export default function FolderTab() {
     return(
         <div className={'folder-tab'}>
             <FolderContext.Provider value={{folderData, addDocument, addFolder, removeDocument, removeFolder, modalActive, setModalActive, movingDocument, setMovingDocument}}>
-                <div>
+                <div className={'folder-wrapper'}>
                     {folders.map(item => <Folder folder={item} key={item?.externalId}/>)}
                 </div>
                 <CreateFolderContext.Provider value={{hasFolderInCreation, setFolderTitle, createFolder, folderTitle}}>

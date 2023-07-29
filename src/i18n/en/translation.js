@@ -53,7 +53,8 @@ export const TRANSLATION_EN = {
         toPage: 'To page',
         toList: 'All users',
         grantAccess: 'Grant access',
-        denyAccess: 'Deny access'
+        denyAccess: 'Deny access',
+        toAccessedNotes: 'To accessed notes'
     },
     errors: {
         auth: "Authorization error. Check your data",
