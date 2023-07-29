@@ -26,7 +26,10 @@ export const TRANSLATION_RU = {
         grantFor: 'Доступ для',
         accessGranted: 'Доступ успешно предоставлен',
         accessors: 'доступы',
-        onlyYouHaveAccess: 'Только у вас есть доступ к этой записке'
+        onlyYouHaveAccess: 'Только у вас есть доступ к этой записке',
+        oldPassword: 'Старый пароль',
+        newPassword: 'Новый пароль',
+        checkInputData: 'Проверьте введенные данные'
     },
     messages: {
         itIsRequiredField: "Обязательно",
@@ -54,7 +57,8 @@ export const TRANSLATION_RU = {
         toList: 'Все пользователи',
         grantAccess: 'Дать доступ',
         denyAccess: 'Отменить доступ',
-        toAccessedNotes: 'К общим запискам'
+        toAccessedNotes: 'К общим запискам',
+        changePassword: 'Сменить пароль',
     },
     errors: {
         auth: "Ошибка авторизации. Проверьте введённые данные",
