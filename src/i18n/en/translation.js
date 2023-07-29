@@ -19,7 +19,12 @@ export const TRANSLATION_EN = {
         favoriteFilm: 'Favorite film',
         aboutYourself: 'Say something about yourself :)',
         noAdditionalInfo: 'User did not add info about himself yet',
-        aboutMe: 'About me'
+        aboutMe: 'About me',
+        read: 'Read',
+        write: 'Read and write',
+        loading: 'Loading...',
+        grantFor: 'Grant access for',
+        accessGranted: 'Access successfully granted'
     },
     messages: {
         itIsRequiredField: "Required",
@@ -44,7 +49,8 @@ export const TRANSLATION_EN = {
         homePage: 'My page',
         change: 'Change info',
         toPage: 'To page',
-        toList: 'All users'
+        toList: 'All users',
+        grantAccess: 'Grant access'
     },
     errors: {
         auth: "Authorization error. Check your data",

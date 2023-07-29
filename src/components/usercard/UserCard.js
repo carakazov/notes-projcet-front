@@ -1,11 +1,13 @@
 import './usercard.css'
 import {useTranslation} from "react-i18next";
 import {useNavigate} from "react-router";
-import {Fragment} from "react";
+import {Fragment, useContext} from "react";
 import AboutMe from "../aboutme/AboutMe";
+import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
 
 export default function UserCard(props) {
     const {userInfo, updatedFunction} = props
+    const {userData} = useContext(GlobalContext)
     const {t} = useTranslation()
     const navigate = useNavigate()
     const favoriteBook = userInfo.additionalInfo.filter(item => item.type === 'favoriteBook')?.at(0)
@@ -27,6 +29,12 @@ export default function UserCard(props) {
             <AboutMe content={aboutMe} userInfo={userInfo} updatedFunction={updatedFunction}/>
         </Fragment>
     }
+
+    function toAccessGrant() {
+        navigate(`/grant/${userInfo.externalId}`)
+    }
+
+    const toAccessGrantButton = userData.externalId !== userInfo.externalId ? <button onClick={toAccessGrant} className={'to-main-button'}>{t('buttons.grantAccess')}</button> : null
 
     return(
         <div className={'user-card-wrapper'}>
@@ -50,6 +58,7 @@ export default function UserCard(props) {
             </div>
             <div className={'user-page-controls'}>
                 <button onClick={() => navigate("/")} className={'to-main-button'}>{t('buttons.toMain')}</button>
+                {toAccessGrantButton}
             </div>
         </div>
     )
