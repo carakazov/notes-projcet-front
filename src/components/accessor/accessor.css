@@ -1,0 +1,29 @@
+.accessor-wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: #393939;
+    padding: 5px;
+    border-radius: 5px;
+    row-gap: 5px;
+}
+
+.user-info-block {
+    display: flex;
+}
+
+.user-info-block-item {
+    flex: 1;
+}
+
+.deny-access-button {
+    background-color: #ff6969;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.deny-access-button:active {
+    background-color: grey;
+}

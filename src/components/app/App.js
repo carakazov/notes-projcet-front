@@ -7,6 +7,7 @@ import MainPage from "../mainpage/MainPage";
 import {startLocalStorage} from "../../starter/localStorageHelper";
 import RegisterPage from "../registerpage/RegisterPage";
 import {
+    ACCESSORS_LIST_PATH,
     GRANT_COMMON_ACCESS_PATH,
     LIST_PAGE_PATH,
     MAIN_PAGE_PATH,
@@ -18,6 +19,7 @@ import {useNavigate} from "react-router";
 import UserPage from "../userpage/UserPage";
 import AllClients from "../allclients/AllClients";
 import CommonAccessGrant from "../commonaccessgrant/CommonAccessGrant";
+import AccessorList from "../accessorslist/AccessorsList";
 
 function App() {
     const [userData, setUserData] = useState(JSON.parse(sessionStorage.getItem(CURRENT_USER_DATA)))
@@ -61,6 +63,7 @@ function App() {
                   <Route exact path={USER_PAGE_PATH} element={<UserPage/>}></Route>
                   <Route exact path={LIST_PAGE_PATH} element={<AllClients/>}></Route>
                   <Route exact path={GRANT_COMMON_ACCESS_PATH} element={<CommonAccessGrant/>}></Route>
+                  <Route exact path={ACCESSORS_LIST_PATH} element={<AccessorList/>}></Route>
               </Routes>
           </GlobalContext.Provider>
         </main>
