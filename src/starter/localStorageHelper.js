@@ -16,9 +16,7 @@ export function reloadLocalStorage() {
 }
 
 export function getLocalNoteExternalId() {
-    let folder = JSON.parse(localStorage.getItem(LOCAL_FOLDER))
-    let number = folder.notes.length
-    return `local-note-${++number}`
+    return `local-${crypto.randomUUID()}`
 }
 
 export function addLocalNote(note) {

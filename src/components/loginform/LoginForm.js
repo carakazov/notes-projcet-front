@@ -95,7 +95,7 @@ export default function LoginForm() {
                     <p>{t('labels.userNotAuthorized')}</p>
                 </div>
                 <div className={'header-button header-item'}>
-                    <button onClick={proceedLogin}>{t('buttons.login')}</button>
+                    <button className={'login-button'} onClick={proceedLogin}>{t('buttons.login')}</button>
                 </div>
             </div>
             <div className={'input-forms'}>
@@ -104,12 +104,14 @@ export default function LoginForm() {
                     <label className={'password-block-item'}>{t('labels.password')}</label>
                 </div>
                 <div className={'inputs'}>
-                    <input className={'login-block-item input-field'} type={'text'} onChange={e => setUsername(e.currentTarget.value)}/>
-                    <input className={'password-block-item input-field'} type={'password'} onChange={e => setPassword(e.currentTarget.value)}/>
-                </div>
-                <div className={'errors'}>
-                    {loginRequired}
-                    {passwordRequired}
+                    <div className={'login-input-block'}>
+                        <input className={'login-block-item input-field'} type={'text'} onChange={e => setUsername(e.currentTarget.value)}/>
+                        {loginRequired}
+                    </div>
+                    <div className={'login-input-block'}>
+                        <input className={'password-block-item input-field'} type={'password'} onChange={e => setPassword(e.currentTarget.value)}/>
+                        {passwordRequired}
+                    </div>
                 </div>
             </div>
             {errorBlock}

@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 import {Fragment, useContext} from "react";
 import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
 import {useNavigate} from "react-router";
-import {ACCESSED_NOTES_PATH, LIST_PAGE_PATH, REGISTER_PAGE_PATH} from "../../constants/pathConstants";
+import {ACCESSED_NOTES_PATH, LIST_PAGE_PATH, REGISTER_PAGE_PATH, RESTORE_PASSWORD} from "../../constants/pathConstants";
 
 export default function TabHeader() {
     const {t, i18n} = useTranslation()
@@ -35,6 +35,10 @@ export default function TabHeader() {
         navigate(ACCESSED_NOTES_PATH)
     }
 
+    function toRestorePassword() {
+        navigate(RESTORE_PASSWORD)
+    }
+
     function getHomePageButton() {
         return (
             <Fragment>
@@ -45,7 +49,12 @@ export default function TabHeader() {
         )
     }
 
+    function getRestorePasswordButton() {
+        return <button onClick={toRestorePassword} className={'tab-header-button'}>{t('buttons.restorePassword')}</button>
+    }
+
     let registerButton = userData ? getHomePageButton() :getRegistrationButton()
+    let restorePasswordButton = userData ? null : getRestorePasswordButton()
 
     return(
         <div className={'tab-header'}>
@@ -55,6 +64,7 @@ export default function TabHeader() {
             <div className={'tab-header-item tab-header-functions'}>
                 <button onClick={() => setLanguage("en")} className={'tab-header-button'}>EN</button>
                 <button onClick={() => setLanguage("ru")} className={'tab-header-button'}>RU</button>
+                {restorePasswordButton}
                 {registerButton}
             </div>
         </div>
