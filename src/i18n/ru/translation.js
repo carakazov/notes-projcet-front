@@ -29,7 +29,8 @@ export const TRANSLATION_RU = {
         onlyYouHaveAccess: 'Только у вас есть доступ к этой записке',
         oldPassword: 'Старый пароль',
         newPassword: 'Новый пароль',
-        checkInputData: 'Проверьте введенные данные'
+        checkInputData: 'Проверьте введенные данные',
+        checkEmail: 'Проверьте Вашу почту'
     },
     messages: {
         itIsRequiredField: "Обязательно",
@@ -59,6 +60,7 @@ export const TRANSLATION_RU = {
         denyAccess: 'Отменить доступ',
         toAccessedNotes: 'К общим запискам',
         changePassword: 'Сменить пароль',
+        restorePassword: 'Восстаноавить пароль',
     },
     errors: {
         auth: "Ошибка авторизации. Проверьте введённые данные",

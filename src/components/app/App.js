@@ -12,7 +12,7 @@ import {
     GRANT_COMMON_ACCESS_PATH,
     LIST_PAGE_PATH,
     MAIN_PAGE_PATH,
-    REGISTER_PAGE_PATH,
+    REGISTER_PAGE_PATH, RESTORE_PASSWORD,
     USER_PAGE_PATH
 } from "../../constants/pathConstants";
 import {useTranslation} from "react-i18next";
@@ -22,6 +22,7 @@ import AllClients from "../allclients/AllClients";
 import CommonAccessGrant from "../commonaccessgrant/CommonAccessGrant";
 import AccessorList from "../accessorslist/AccessorsList";
 import AccessedNotesPage from "../accessednotespage/AccessedNotesPage";
+import RestorePasswordPage from "../restorepasswordpage/RestorePasswordPage";
 
 function App() {
     const [userData, setUserData] = useState(JSON.parse(sessionStorage.getItem(CURRENT_USER_DATA)))
@@ -67,6 +68,7 @@ function App() {
                   <Route exact path={GRANT_COMMON_ACCESS_PATH} element={<CommonAccessGrant/>}></Route>
                   <Route exact path={ACCESSORS_LIST_PATH} element={<AccessorList/>}></Route>
                   <Route exact path={ACCESSED_NOTES_PATH} element={<AccessedNotesPage/>}></Route>
+                  <Route exact path={RESTORE_PASSWORD} element={<RestorePasswordPage/>}></Route>
               </Routes>
           </GlobalContext.Provider>
         </main>

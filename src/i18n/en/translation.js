@@ -28,7 +28,8 @@ export const TRANSLATION_EN = {
         showAccess: 'accessors',
         onlyYouHaveAccess: 'Only you have access to this note',
         oldPassword: 'Old password',
-        newPassword: 'New password'
+        newPassword: 'New password',
+        checkEmail: 'Check your email'
     },
     messages: {
         itIsRequiredField: "Required",
@@ -58,7 +59,8 @@ export const TRANSLATION_EN = {
         grantAccess: 'Grant access',
         denyAccess: 'Deny access',
         toAccessedNotes: 'To accessed notes',
-        changePassword: 'Change password'
+        changePassword: 'Change password',
+        restorePassword: 'Restore password'
     },
     errors: {
         auth: "Authorization error. Check your data",

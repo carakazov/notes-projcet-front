@@ -36,3 +36,18 @@ export async function registerClient(body) {
     }
     return Promise.reject(response.status)
 }
+
+export async function restorePassword(body) {
+    let response = await fetch(`${process.env.REACT_APP_OAUTH_BACKEND_URL}/client/restorePassword`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+    if(response.ok) {
+        return Promise.resolve()
+    }
+
+    return Promise.reject(response.status)
+}

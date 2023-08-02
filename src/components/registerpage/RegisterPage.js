@@ -1,7 +1,7 @@
 import './registerpage.css'
 import {useTranslation} from "react-i18next";
 import {useContext, useState} from "react";
-import {isStringEmpty} from "../../validators/stringValidator";
+import {isEmail, isStringEmpty} from "../../validators/stringValidator";
 import {useNavigate} from "react-router";
 import {registerClient} from "../../api/authApi";
 import {getPersonalData} from "../../api/logicApi";
@@ -67,10 +67,7 @@ export default function RegisterPage() {
             correct = false
             errorObject.emailRequired = t('messages.itIsRequiredField')
         } else {
-            const emailRegexp = new RegExp(
-                /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i
-            )
-            if(!emailRegexp.test(email)) {
+            if(!isEmail(email)) {
                 correct = false
                 errorObject.notEmail = t('messages.inputCorrectEmail')
             }
