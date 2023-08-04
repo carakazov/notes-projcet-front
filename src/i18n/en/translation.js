@@ -22,6 +22,7 @@ export const TRANSLATION_EN = {
         aboutMe: 'About me',
         read: 'Read',
         write: 'Read and write',
+        accessors: 'accessors',
         loading: 'Loading...',
         grantFor: 'Grant access for',
         accessGranted: 'Access successfully granted',

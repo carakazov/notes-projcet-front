@@ -122,7 +122,13 @@ export default function RegisterPage() {
                             setUserData(data)
                             navigate("/")
                         })
-                        .catch(() => handleFatalError())
+                        .catch(status => {
+                            if (status !== 404) {
+                                handleFatalError()
+                            } else {
+                                navigate("/")
+                            }
+                        })
                 })
                 .catch(error => {
                     console.log(error)

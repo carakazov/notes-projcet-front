@@ -36,12 +36,14 @@ export default function AboutMe(props) {
         }
     }
 
+    const readOnly = userInfo.externalId !== userData.externalId;
+
     const clientButton = userInfo.externalId === userData.externalId ? <button className={'save-button'} onClick={updateAboutMe}>{t('buttons.save')}</button> : null
     const error = lengthError ? <p className={'error-message'}>{lengthError}</p> : null
     return(
         <div className={'about-me-wrapper'}>
             <p>{t('labels.aboutMe')}</p>
-            <textarea className={'about-me-textarea'} onChange={e => setNewContent(e.currentTarget.value)} readOnly={false} defaultValue={currentContent}/>
+            <textarea className={'about-me-textarea'} onChange={e => setNewContent(e.currentTarget.value)} readOnly={readOnly} defaultValue={currentContent}/>
             {error}
             {clientButton}
         </div>

@@ -97,7 +97,7 @@ export default function NoteField() {
 
     function edit() {
         if(validateContent()) {
-            if(currentNote.externalId.includes('local-note')) {
+            if(currentNote.externalId.includes('local-')) {
                 editLocalNote(currentNote.externalId, newContent)
                 setContent(newContent)
                 hasEditInProcess(false)
