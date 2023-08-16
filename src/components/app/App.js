@@ -7,6 +7,7 @@ import MainPage from "../mainpage/MainPage";
 import {startLocalStorage} from "../../starter/localStorageHelper";
 import RegisterPage from "../registerpage/RegisterPage";
 import {
+    ABOUT,
     ACCESSED_NOTES_PATH,
     ACCESSORS_LIST_PATH,
     GRANT_COMMON_ACCESS_PATH,

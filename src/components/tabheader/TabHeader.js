@@ -1,4 +1,5 @@
 import './tabheader.css'
+import About from '../../pdf/About.pdf'
 import TabList from "../tablist/TabList";
 import {useTranslation} from "react-i18next";
 import {Fragment, useContext} from "react";
@@ -62,6 +63,7 @@ export default function TabHeader() {
                 <TabList/>
             </div>
             <div className={'tab-header-item tab-header-functions'}>
+                <button className={'tab-header-button'}><a href={About} className={'about-link'}>{t('buttons.aboutSystem')}</a></button>
                 <button onClick={() => setLanguage("en")} className={'tab-header-button'}>EN</button>
                 <button onClick={() => setLanguage("ru")} className={'tab-header-button'}>RU</button>
                 {restorePasswordButton}

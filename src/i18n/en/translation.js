@@ -61,7 +61,8 @@ export const TRANSLATION_EN = {
         denyAccess: 'Deny access',
         toAccessedNotes: 'To accessed notes',
         changePassword: 'Change password',
-        restorePassword: 'Restore password'
+        restorePassword: 'Restore password',
+        aboutSystem: 'About system'
     },
     errors: {
         auth: "Authorization error. Check your data",

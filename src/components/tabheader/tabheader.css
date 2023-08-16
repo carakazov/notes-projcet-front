@@ -5,6 +5,11 @@
     display: flex;
 }
 
+.about-link {
+    text-decoration: none;
+    color: white;
+}
+
 .tab-header-item {
     flex: 1;
 }

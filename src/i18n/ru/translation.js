@@ -61,6 +61,7 @@ export const TRANSLATION_RU = {
         toAccessedNotes: 'К общим запискам',
         changePassword: 'Сменить пароль',
         restorePassword: 'Восстаноавить пароль',
+        aboutSystem: 'О системе'
     },
     errors: {
         auth: "Ошибка авторизации. Проверьте введённые данные",
