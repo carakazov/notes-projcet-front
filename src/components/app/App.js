@@ -1,6 +1,6 @@
 import './App.css';
 import {Route, Routes} from "react-router-dom";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {GlobalContext} from "../../conxtexts/authcontext/globalContext";
 import {CURRENT_USER_DATA, LOCAL_FOLDER} from "../../constants/tokenConstants";
 import MainPage from "../mainpage/MainPage";
@@ -24,6 +24,8 @@ import CommonAccessGrant from "../commonaccessgrant/CommonAccessGrant";
 import AccessorList from "../accessorslist/AccessorsList";
 import AccessedNotesPage from "../accessednotespage/AccessedNotesPage";
 import RestorePasswordPage from "../restorepasswordpage/RestorePasswordPage";
+
+const AdminApp = React.lazy(() => import('AdminApp/App'))
 
 function App() {
     const [userData, setUserData] = useState(JSON.parse(sessionStorage.getItem(CURRENT_USER_DATA)))
@@ -59,7 +61,6 @@ function App() {
     }
 
     return (
-        <main>
           <GlobalContext.Provider value={{userData, setUserData, folderIdToReload, setFolderIdToReload, handleFatalError}}>
               <Routes>
                   <Route exact path={MAIN_PAGE_PATH} element={<MainPage/>}></Route>
@@ -70,9 +71,9 @@ function App() {
                   <Route exact path={ACCESSORS_LIST_PATH} element={<AccessorList/>}></Route>
                   <Route exact path={ACCESSED_NOTES_PATH} element={<AccessedNotesPage/>}></Route>
                   <Route exact path={RESTORE_PASSWORD} element={<RestorePasswordPage/>}></Route>
+                  <Route exact path={'/admin/*'} element={<AdminApp/>}></Route>
               </Routes>
           </GlobalContext.Provider>
-        </main>
     );
 }
 

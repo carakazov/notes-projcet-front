@@ -1,4 +1,9 @@
+import React from 'react'
+
+import * as adminRu from 'AdminApp/adminRu'
+
 export const TRANSLATION_RU = {
+    ...adminRu.TRANSLATION_RU,
     labels: {
         userNotAuthorized: "Пользователь не авторизован",
         login: "Логин",

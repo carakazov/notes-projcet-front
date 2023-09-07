@@ -12,6 +12,9 @@ export async function login(loginData) {
         encodeURIComponent(process.env.REACT_APP_PASSWORD_KEY) + '=' + encodeURIComponent(loginData.password)
     ]
 
+     console.log(process.env.REACT_APP_OAUTH_BACKEND_URL)
+    console.log(formBody)
+
     let response = await fetch(process.env.REACT_APP_OAUTH_BACKEND_URL + LOGIN_URL, {
         method: 'POST',
         headers: {

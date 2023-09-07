@@ -25,7 +25,6 @@ export default function Folder(props) {
     }, [reloadFolders])
 
     useEffect(() => {
-        console.log(folderIdToReload)
         if(folderIdToReload === folder.externalId) {
             reload()
             setFolderIdToReload(null)
@@ -48,15 +47,15 @@ export default function Folder(props) {
 
     function handleCheck(e) {
         if(e.currentTarget.checked) {
-            addFolder(folder.externalId)
+            addFolder(folder?.externalId)
             hasSelected(true)
         } else {
-            removeFolder(folder.externalId)
+            removeFolder(folder?.externalId)
         }
     }
 
     function create() {
-        setCreationDirectory(folder.externalId)
+        setCreationDirectory(folder?.externalId)
         hasInCreation(true)
         hasEditInProcess(false)
     }
@@ -67,7 +66,7 @@ export default function Folder(props) {
 
     let documents = isOpen ?
         <div className={'documents-block'}>
-            {notes?.map(item => <Document document={item} folderExternalId={folder.externalId} key={item.externalId}/>)}
+            {notes?.map(item => <Document document={item} folderExternalId={folder?.externalId} key={item.externalId}/>)}
             <p className={'create-note'} onClick={create}>{t("labels.createNote")}</p>
         </div> :
         null
