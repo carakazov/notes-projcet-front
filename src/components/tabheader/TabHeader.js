@@ -63,6 +63,7 @@ export default function TabHeader() {
                 <TabList/>
             </div>
             <div className={'tab-header-item tab-header-functions'}>
+                <button className={'tab-header-button'} onClick={() => navigate('/admin')}>{t('buttons.adminPanel')}</button>
                 <button className={'tab-header-button'}><a href={About} className={'about-link'}>{t('buttons.aboutSystem')}</a></button>
                 <button onClick={() => setLanguage("en")} className={'tab-header-button'}>EN</button>
                 <button onClick={() => setLanguage("ru")} className={'tab-header-button'}>RU</button>

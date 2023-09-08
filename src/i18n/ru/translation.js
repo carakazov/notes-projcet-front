@@ -49,6 +49,7 @@ export const TRANSLATION_RU = {
         fatalError: 'Неизвестная ошибка на сервере. Простите :('
     },
     buttons: {
+        adminPanel: 'Панель админа',
         login: "Вход",
         logout: "Выйти",
         save: "Сохранить",

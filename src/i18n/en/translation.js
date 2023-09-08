@@ -50,6 +50,7 @@ export const TRANSLATION_EN = {
         checkInputData: 'Check input data'
     },
     buttons: {
+        adminPanel: 'Admin panel',
         login: "Log In",
         logout: "Log Out",
         save: "Save",

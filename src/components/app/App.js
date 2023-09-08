@@ -34,6 +34,15 @@ function App() {
     const {t} = useTranslation()
     const navigate = useNavigate()
 
+    const [crutch, setCrutch] = useState(true)
+    //Не смотрите сюда, это такой костыль
+    useEffect(() => {
+        if(crutch) {
+            navigate("/")
+            setCrutch(false)
+        }
+    }, [crutch])
+
     useEffect(() => {
         startLocalStorage()
     }, [])
